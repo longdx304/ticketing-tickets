@@ -41,7 +41,7 @@ global.createId = () => {
 global.signin = () => {
   // build a jwt payload { id, email }
   const payload = {
-    id: 'asdq233132hj',
+    id: global.createId(),
     email: 'test@test.com',
   };
 
