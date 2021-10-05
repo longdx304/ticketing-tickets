@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken';
 
 declare global {
   var signin: () => string[];
+  var createId: () => string;
 }
 
 let mongo: any;
@@ -32,6 +33,10 @@ afterAll(async () => {
   await mongo.stop();
   await mongoose.connection.close();
 });
+
+global.createId = () => {
+  return new mongoose.Types.ObjectId().toHexString();
+};
 
 global.signin = () => {
   // build a jwt payload { id, email }
