@@ -9,6 +9,8 @@ declare global {
   var createId: () => string;
 }
 
+jest.mock('../nats-wrapper');
+
 let mongo: any;
 
 beforeAll(async () => {
